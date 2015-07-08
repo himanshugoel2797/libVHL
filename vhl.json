@@ -1,0 +1,18 @@
+{
+  "VHL": {
+    "nid": 0,
+    "modules": {
+      "VHL": {
+        "nid": 0,
+        "kernel": false,
+        "functions": {
+					"vhl_loadHomebrew" : 1,
+					"vhl_startHomebrew": 2,
+					"vhl_getIntSetting": 3,
+					"vhl_setIntSetting": 4
+        },
+        "variables": {}
+      }
+    }
+  }
+}
