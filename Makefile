@@ -8,7 +8,7 @@ TARGET := libvhl_stub.a
 
 CC      = arm-none-eabi-gcc
 
-ENTRIES := $(addsuffix .o,$(addprefix VHL_,1 2 3 4))
+ENTRIES := $(addsuffix .o,$(addprefix VHL_,3 4))
 OBJS	:= VHL_head.o VHL_NIDS.o $(ENTRIES)
 
 all: $(TARGET)
