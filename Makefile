@@ -16,7 +16,7 @@ VHL:
 	$(CC) -DFUNC=0x00000002 -c VHL.S -o VHL_2.o
 	$(CC) -DFUNC=0x00000003 -c VHL.S -o VHL_3.o
 	$(CC) -DFUNC=0x00000004 -c VHL.S -o VHL_4.o
-	ar rvs libVHL.a VHL_HEAD.o VHL_NIDS.o VHL_1.o VHL_2.o VHL_3.o VHL_4.o
+	ar rvs libvhl_stub.a VHL_HEAD.o VHL_NIDS.o VHL_1.o VHL_2.o VHL_3.o VHL_4.o
 
 clean:
 	@rm -rf *.o *.a
