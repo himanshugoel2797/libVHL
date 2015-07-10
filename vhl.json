@@ -6,10 +6,8 @@
         "nid": 0,
         "kernel": false,
         "functions": {
-					"vhl_loadHomebrew" : 1,
-					"vhl_startHomebrew": 2,
-					"vhl_getIntSetting": 3,
-					"vhl_setIntSetting": 4
+					"vhl_GetIntSetting": 3,
+					"vhl_SetIntSetting": 4
         },
         "variables": {}
       }

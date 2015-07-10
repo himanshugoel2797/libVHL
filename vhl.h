@@ -15,11 +15,7 @@ typedef enum{
   VARIABLE_SUSPEND_MASK = 2
 } INT_VARIABLE_OPTIONS;
 
-
-int vhl_loadHomebrew(const char *path, int slot);
-int vhl_startHomebrew(int slot);
-
-int vhl_getIntSetting(INT_VARIABLE_OPTIONS option);
-int vhl_setIntSetting(INT_VARIABLE_OPTIONS option, int value);
+int vhl_GetIntSetting(INT_VARIABLE_OPTIONS option);
+int vhl_SetIntSetting(INT_VARIABLE_OPTIONS option, int value);
 
 #endif
