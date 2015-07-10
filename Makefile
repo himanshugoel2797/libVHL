@@ -4,19 +4,26 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-PREFIX  = $(DEVKITARM)/bin/arm-none-eabi
-CC      = $(PREFIX)-gcc
+TARGET := libvhl_stub.a
 
-all: VHL
+CC      = arm-none-eabi-gcc
 
-VHL:
-	$(CC) -DHEAD -c VHL.S -o VHL_HEAD.o
-	$(CC) -DNIDS -c VHL.S -o VHL_NIDS.o
-	$(CC) -DFUNC=0x00000001 -c VHL.S -o VHL_1.o
-	$(CC) -DFUNC=0x00000002 -c VHL.S -o VHL_2.o
-	$(CC) -DFUNC=0x00000003 -c VHL.S -o VHL_3.o
-	$(CC) -DFUNC=0x00000004 -c VHL.S -o VHL_4.o
-	ar rvs libVHL.a VHL_HEAD.o VHL_NIDS.o VHL_1.o VHL_2.o VHL_3.o VHL_4.o
+ENTRIES := $(addsuffix .o,$(addprefix VHL_,1 2 3 4))
+OBJS	:= VHL_head.o VHL_NIDS.o $(ENTRIES)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	ar rvs $@ $^
+
+VHL_head.o: VHL.S
+	$(CC) -DHEAD -c $< -o $@
+
+VHL_NIDS.o: VHL.S
+	$(CC) -DNIDS -c $< -o $@
+
+$(ENTRIES): VHL.S
+	$(CC) -DFUNC=$(subst VHL_,0x,$*) $< -c -o $@
 
 clean:
-	@rm -rf *.o *.a
+	@rm -rf $(OBJS) $(TARGET)
