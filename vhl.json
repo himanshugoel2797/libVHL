@@ -6,8 +6,8 @@
         "nid": 0,
         "kernel": false,
         "functions": {
-					"vhl_GetIntSetting": 3,
-					"vhl_SetIntSetting": 4
+					"vhlGetIntSetting": 3,
+					"vhlSetIntSetting": 4
         },
         "variables": {}
       }

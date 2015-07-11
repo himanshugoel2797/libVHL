@@ -6,7 +6,7 @@
 
 TARGET := libvhl_stub.a
 
-CC      = arm-none-eabi-gcc
+COMPILE := arm-none-eabi-gcc -specs=psp2.specs
 
 ENTRIES := $(addsuffix .o,$(addprefix VHL_,3 4))
 OBJS	:= VHL_head.o VHL_NIDS.o $(ENTRIES)
@@ -17,13 +17,13 @@ $(TARGET): $(OBJS)
 	ar rvs $@ $^
 
 VHL_head.o: VHL.S
-	$(CC) -DHEAD -c $< -o $@
+	$(COMPILE) -DHEAD -c $< -o $@
 
 VHL_NIDS.o: VHL.S
-	$(CC) -DNIDS -c $< -o $@
+	$(COMPILE) -DNIDS -c $< -o $@
 
 $(ENTRIES): VHL.S
-	$(CC) -DFUNC=$(subst VHL_,0x,$*) $< -c -o $@
+	$(COMPILE) -DFUNC=$(subst VHL_,0x,$*) $< -c -o $@
 
 clean:
 	@rm -rf $(OBJS) $(TARGET)
