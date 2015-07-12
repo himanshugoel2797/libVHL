@@ -15,7 +15,7 @@ typedef enum{
   VARIABLE_SUSPEND_MASK = 2
 } INT_VARIABLE_OPTIONS;
 
-int vhl_GetIntSetting(INT_VARIABLE_OPTIONS option);
-int vhl_SetIntSetting(INT_VARIABLE_OPTIONS option, int value);
+int vhlGetIntSetting(INT_VARIABLE_OPTIONS option);
+int vhlSetIntSetting(INT_VARIABLE_OPTIONS option, int value);
 
 #endif
