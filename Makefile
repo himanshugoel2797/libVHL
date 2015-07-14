@@ -25,5 +25,10 @@ VHL_NIDS.o: VHL.S
 $(ENTRIES): VHL.S
 	$(COMPILE) -DFUNC=$(subst VHL_,0x,$*) $< -c -o $@
 
+install: $(TARGET)
+	@cp $(TARGET) $(PSP2SDK)/lib
+	@cp vhl.h $(PSP2SDK)/include
+	@echo "Installed!"
+
 clean:
 	@rm -rf $(OBJS) $(TARGET)
